@@ -14,7 +14,7 @@ class TasksController < ApplicationController
   def create
     task = Task.new(task_params)
     task.save!
-    redirect_to tasks_url, notice: "タスク#{task.name}を保存しました"
+    redirect_to tasks_url, notice: "タスク#{task.name}を保存しました."
   end
 
   def edit
@@ -25,6 +25,12 @@ class TasksController < ApplicationController
     task = Task.find(params[:id])
     task.update(task_params)
     redirect_to tasks_url, notice: "タスク#{task.name}を更新しました."
+  end
+
+  def destroy
+    task = Task.find(params[:id])
+    task.destroy
+    redirect_to tasks_url, notice: "タスク#{task.name}を削除しました."
   end
 
   private
