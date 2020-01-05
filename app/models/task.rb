@@ -3,7 +3,7 @@ class Task < ApplicationRecord
   validate  :validate_name_not_including_comma
   before_validation :set_nameless_name
 
-  belong_to :user
+  belongs_to :user
 
   scope :recent, -> { order(created_at: :desc) }
 
