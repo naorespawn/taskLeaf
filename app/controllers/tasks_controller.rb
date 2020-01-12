@@ -14,7 +14,7 @@ class TasksController < ApplicationController
   def create
     @task = current_user.tasks.new(task_params)
     if @task.save
-          redirect_to @task, notice: "タスク#{@task.name}を保存しました."
+      redirect_to @task, notice: "タスク#{@task.name}を保存しました."
     else
       render :new
     end
